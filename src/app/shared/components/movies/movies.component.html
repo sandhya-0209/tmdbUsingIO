@@ -1,0 +1,36 @@
+
+<div class="card">
+    <figure class="movieCard text-white">
+        <img  class="w-100"  src="https://image.tmdb.org/t/p/w342/{{movieObj.backdrop_path || movieObj.poster_path}}"
+         [alt]="movieObj.title || movieObj.original_title"
+          [title]="movieObj.title ||movieObj.original_title">
+           <figcaption>
+               <div class="movieTitle">
+                           <div class="row">
+                               <div class="col-md-10">
+                                   <h3 class="mb-0">{{movieObj.title ||movieObj.original_title}}</h3>
+                               </div>
+                               <div class="col-md-2 align-self-center">
+                                   <span
+                                    class="p-1 rating"
+                                    [ngClass]=" {
+                                       'bg-success' : movieObj.vote_average >= 7.5,
+                                       'bg-warning' : movieObj.vote_average >=5 && movieObj.vote_average < 7.5 ,
+                                       'bg-danger' : movieObj.vote_average < 5
+                                    }" 
+                                    >
+                                      {{movieObj.vote_average}}
+                                   </span>
+                               </div>
+                           </div>
+                </div>
+                <div class="movieOverview">
+                     <h4 class="mb-0">{{movieObj.title ||movieObj.original_title}}</h4>
+                     <p>
+                        <em>Overview</em>
+                        {{movieObj.overview}}
+                     </p>
+                </div>
+           </figcaption>
+    </figure>
+  </div> 
